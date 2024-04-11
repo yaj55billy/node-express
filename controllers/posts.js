@@ -10,18 +10,21 @@ const posts = {
   async createdPost(req, res) {
     try {
       const data = req.body;
-      if(data.content !== undefined) {
-        const newPost = await Post.create({
-          name: data.name,
-          image: data.image,
-          content: data.content,
-          type: data.type,
-          tags: data.tags
-        });    
-        handleSuccess(res, newPost);
-      } else {
+
+      if(data.content === undefined) {
         handleError(res);
+        return;
       }
+
+      const newPost = await Post.create({
+        name: data.name,
+        image: data.image,
+        content: data.content,
+        type: data.type,
+        tags: data.tags
+      });
+      handleSuccess(res, newPost);
+
     } catch (error) {
       handleError(res, error);
     }
@@ -30,27 +33,30 @@ const posts = {
     try {
       const data = req.body;
       const id = req.params.id;
-      if(data.content !== undefined) {
-        const editContent = {
-          name: data.name,
-          image: data.image,
-          content: data.content,
-          type: data.type,
-          tags: data.tags
-        };     
-        const editPost = await Post.findByIdAndUpdate(id, editContent);
-        handleSuccess(res, editPost);
-      } else {
+
+      if(data.content === undefined) {
         handleError(res);
+        return;
       }
+
+      const editContent = {
+        name: data.name,
+        image: data.image,
+        content: data.content,
+        type: data.type,
+        tags: data.tags
+      };
+      const editPost = await Post.findByIdAndUpdate(id, editContent, { returnDocument: 'after' });
+      editPost ? handleSuccess(res, editPost) : handleError(res);
+      
     } catch (error) {
       handleError(res, error);
     }  
   },
   async deletePost(req, res) {
     const id = req.params.id;
-    await Post.findByIdAndDelete(id);
-    handleSuccess(res, null);
+    const deletePost = await Post.findByIdAndDelete(id);
+    deletePost ? handleSuccess(res, null) : handleError(res);
   },
   async deleteAllPosts(req, res) {
     const posts = await Post.deleteMany({}); 

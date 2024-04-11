@@ -8,11 +8,23 @@
 	"item": [
 		{
 			"name": "取得所有貼文",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://127.0.0.1:3005/posts",
+					"raw": "http://127.0.0.1:3005/api/posts",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -22,6 +34,7 @@
 					],
 					"port": "3005",
 					"path": [
+						"api",
 						"posts"
 					]
 				}
@@ -35,7 +48,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"測試貼文222\",\n    \"image\": \"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\n    \"content\": \"貼文內容222\",\n    \"type\": \"person\",\n    \"tags\": [\"測試222\"]\n}",
+					"raw": "{\n    \"name\": \"測試貼文1\",\n    \"image\": \"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\",\n    \"content\": \"貼文內容1\",\n    \"type\": \"person\",\n    \"tags\": [\"測試\"]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,7 +56,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3005/posts",
+					"raw": "http://127.0.0.1:3005/api/post",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -53,7 +66,8 @@
 					],
 					"port": "3005",
 					"path": [
-						"posts"
+						"api",
+						"post"
 					]
 				}
 			},
@@ -66,7 +80,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"標題調整333\",\n    \"content\": \"更改內容333～\"\n}",
+					"raw": "{\n    \"name\": \"標題調整2\",\n    \"content\": \"更改內容2～\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -74,7 +88,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:3005/posts/660410e09fb43586495c3dd0",
+					"raw": "http://127.0.0.1:3005/api/post/6617b47d6c19f4afdd368028",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -84,8 +98,9 @@
 					],
 					"port": "3005",
 					"path": [
-						"posts",
-						"660410e09fb43586495c3dd0"
+						"api",
+						"post",
+						"6617b47d6c19f4afdd368028"
 					]
 				}
 			},
@@ -97,7 +112,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:3005/posts/660410e09fb43586495c3dd0",
+					"raw": "http://127.0.0.1:3005/api/post/6617b47d6c19f4afdd368028",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -107,8 +122,9 @@
 					],
 					"port": "3005",
 					"path": [
-						"posts",
-						"660410e09fb43586495c3dd0"
+						"api",
+						"post",
+						"6617b47d6c19f4afdd368028"
 					]
 				}
 			},
@@ -120,7 +136,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:3005/posts",
+					"raw": "http://127.0.0.1:3005/api/posts",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -130,6 +146,7 @@
 					],
 					"port": "3005",
 					"path": [
+						"api",
 						"posts"
 					]
 				}

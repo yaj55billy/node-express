@@ -17,11 +17,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
-app.use('/posts', postsRouter);
+app.use('/api', postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  res.status(404).json({
+    "status": "false",
+    "message": "無此 API 路徑！"
+  });
+  res.end();
 });
 
 // error handler
